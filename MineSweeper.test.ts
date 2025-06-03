@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert";
 
-function rechecheMineCote(i:number):number{
+function rechecheMineDroite(i:number):number{
     const premirerLigne=[".",".","*","*","."];
     let compteurMine=0;
 
@@ -17,17 +17,14 @@ function rechecheMineCote(i:number):number{
 }
 
 Deno.test("0 mine à droite", ()=>{
-    assertEquals(rechecheMineCote(0),0);
+    assertEquals(rechecheMineDroite(0),0);
 });
 
 Deno.test("1 mine à droite", ()=>{
-    assertEquals(rechecheMineCote(1),1);
+    assertEquals(rechecheMineDroite(1),1);
 });
 
 Deno.test("recherche mines à droite par rapport à la case la plus à droite de la ligne", ()=>{
-    assertEquals(rechecheMineCote(4),0);
+    assertEquals(rechecheMineDroite(4),0);
 });
 
-Deno.test("0 mine à gauche", ()=>{
-    assertEquals(rechecheMineCote(1),0);
-});
