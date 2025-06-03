@@ -30,7 +30,7 @@ function rechecheMineGauche(i:number):string{
     }
       
     return compteurMine.toString();
-}*/
+}
 
 function rechecheMineCote(i:number):string{
     const premiereLigne=[".",".","*","*",".","*"];
@@ -95,7 +95,7 @@ function rechecheMineBas(i:number,p:number):string{
         }
         return compteurMine.toString();
     }else return "*";  
-}*/
+}
 
 function rechecheMineHautBas(i:number,p:number):string{
     const matrice=[
@@ -123,7 +123,49 @@ function rechecheMineHautBas(i:number,p:number):string{
         }
         return compteurMine.toString();
     }else return "*";  
+}*/
+
+function rechecheMine(i:number,p:number):string{
+    const matrice=[
+        [".",".","*","*","."],
+        [".","*",".",".","."],
+        ["*",".","*",".","."],        
+        [".","*","*",".","."]        
+    ];
+    let compteurMine=0;
+
+    if(matrice[i][p]==="."){
+        if(i<matrice.length-1){
+            if(matrice[i+1][p]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
+
+            if(matrice[i][p+1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
+        }
+
+        if(i>0){
+            if(matrice[i-1][p]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
+
+            if(matrice[i][p-1]==="."){
+                 compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
+        }
+        return compteurMine.toString();
+    }else return "*";  
 }
+
 
 /*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),"0");
@@ -147,7 +189,7 @@ Deno.test("1 mine à gauche", ()=>{
 
 Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
     assertEquals(rechecheMineGauche(0),"0");
-});*/
+});
 
 Deno.test("0 mine à droite et à gauche", ()=>{
     assertEquals(rechecheMineCote(0),"0");
@@ -161,7 +203,7 @@ Deno.test("1 mine de chaque cote", ()=>{
     assertEquals(rechecheMineCote(4),"2");
 });
 
-/*Deno.test("0 mine au dessus", ()=>{
+Deno.test("0 mine au dessus", ()=>{
     assertEquals(rechecheMineHaut(1,0),"0");
 });
 
@@ -175,14 +217,22 @@ Deno.test("0 mine en dessous", ()=>{
 
 Deno.test("recherche mine en dessous de la ligne la plus basse", ()=>{
     assertEquals(rechecheMineBas(1,0),"0");
-});*/
+});
 
-/*Deno.test("1 mine en haut", ()=>{
+Deno.test("1 mine en haut", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"1");
-});*/
+});
 
 Deno.test("1 mine en haut et 1 en bas", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"2");
+});*/
+
+Deno.test("recherche mine en verticale et horizontal", ()=>{
+    assertEquals(rechecheMine(2,1),"4");
+});
+
+Deno.test("recherche mine en verticale et horizontal", ()=>{
+    assertEquals(rechecheMine(1,2),"3");
 });
 
 
