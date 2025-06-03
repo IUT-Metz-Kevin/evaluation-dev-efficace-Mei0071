@@ -53,9 +53,10 @@ function rechecheMineCote(i:number):string{
             }
         
         }
+        return compteurMine.toString();
+
     }else return "*";
 
-    return compteurMine.toString();
 }
 
 function rechecheMineHaut(i:number,p:number):string{
@@ -64,16 +65,19 @@ function rechecheMineHaut(i:number,p:number):string{
         [".","*",".",".","."]
     ];
     let compteurMine=0;
-
+    
     if(matrice[i][p]==="."){
-        if(matrice[i-1][p]==="."){
-            compteurMine=compteurMine;
-        }else{
-            compteurMine++
+        if(i>0){
+            if(matrice[i-1][p]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
         }
+        return compteurMine.toString();
     }else return "*";
+    
       
-    return compteurMine.toString();
 }
 
 /*Deno.test("0 mine à droite", ()=>{
@@ -119,6 +123,7 @@ Deno.test("0 mine au dessus", ()=>{
 Deno.test("recherche mine au dessu de la ligne la plus haute", ()=>{
     assertEquals(rechecheMineHaut(0,0),"0");
 });
+
 
 
 
