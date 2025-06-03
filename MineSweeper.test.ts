@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert";
 
-function rechecheMineDroite(i:number):number{
+/*function rechecheMineDroite(i:number):number{
     const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
@@ -30,33 +30,35 @@ function rechecheMineGauche(i:number):number{
     }
       
     return compteurMine;
-}
+}*/
 
-function rechecheMineCote(i:number):number{
+function rechecheMineCote(i:number):string{
     const premiereLigne=[".",".","*","*",".","*"];
     let compteurMine=0;
 
-    if(i<premiereLigne.length-1){
-        if(premiereLigne[i+1]==="."){
-            compteurMine=compteurMine;
-        }else{
-            compteurMine++;
+    if(premiereLigne[i]==="."){
+        if(i<premiereLigne.length-1){
+            if(premiereLigne[i+1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+            }
         }
-    }
 
-    if(i>0){
-        if(premiereLigne[i-1]==="."){
-            compteurMine=compteurMine;
-        }else{
-            compteurMine++;
+        if(i>0){
+            if(premiereLigne[i-1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+            }
+        
         }
+    }else return "*";
     
-    }
-
-    return compteurMine;
+    return compteurMine.toString();
 }
 
-Deno.test("0 mine à droite", ()=>{
+/*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),0);
 });
 
@@ -78,17 +80,20 @@ Deno.test("1 mine à gauche", ()=>{
 
 Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
     assertEquals(rechecheMineGauche(0),0);
-});
+});*/
 
 Deno.test("0 mine à droite et à gauche", ()=>{
-    assertEquals(rechecheMineCote(0),0);
+    assertEquals(rechecheMineCote(0),"0");
 });
 
 Deno.test("1 mine d'un cote", ()=>{
-    assertEquals(rechecheMineCote(1),1);
+    assertEquals(rechecheMineCote(1),"1");
 });
 
 Deno.test("1 mine de chaque cote", ()=>{
-    assertEquals(rechecheMineCote(4),2);
+    assertEquals(rechecheMineCote(4),"2");
 });
+
+
+
 
