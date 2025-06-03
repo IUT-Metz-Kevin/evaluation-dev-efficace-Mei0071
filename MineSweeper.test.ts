@@ -86,11 +86,13 @@ function rechecheMineBas(i:number,p:number):string{
     let compteurMine=0;
     
     if(matrice[i][p]==="."){
+         if(i<matrice.length-1){
             if(matrice[i+1][p]==="."){
                 compteurMine=compteurMine;
             }else{
                 compteurMine++
             }
+        }
         return compteurMine.toString();
     }else return "*";  
 }
