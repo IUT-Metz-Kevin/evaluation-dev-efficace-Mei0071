@@ -49,3 +49,7 @@ Deno.test("1 mine à gauche", ()=>{
     assertEquals(rechecheMineGauche(4),1);
 });
 
+Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
+    assertEquals(rechecheMineGauche(0),0);
+});
+
