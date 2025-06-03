@@ -128,7 +128,7 @@ function rechecheMineHautBas(i:number,p:number):string{
 function rechecheMine(i:number,p:number):string{
     const matrice=[
         [".",".","*","*","."],
-        [".","*",".",".","."],
+        [".","*","*",".","."],
         ["*",".","*",".","."],        
         [".","*","*",".","."]        
     ];
@@ -149,6 +149,20 @@ function rechecheMine(i:number,p:number):string{
             }
         }
 
+        if(p<matrice[p].length-1){
+            if(matrice[i-1][p+1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+            }
+
+            if(matrice[i+1][p+1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+            }
+        }
+
         if(i>0){
             if(matrice[i-1][p]==="."){
                 compteurMine=compteurMine;
@@ -162,6 +176,23 @@ function rechecheMine(i:number,p:number):string{
                 compteurMine++
             }
         }
+
+        if(p<0){
+            if(matrice[i-1][p-1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+            }
+
+            if(p<0){
+                if(matrice[i+1][p-1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+                }
+            }
+        }
+
         return compteurMine.toString();
     }else return "*";  
 }
@@ -225,7 +256,7 @@ function rechecheMineDiagoHaut(i:number,p:number):string{
     }
 
     return compteurMine.toString();
-}*/
+}
 
 function rechecheMineDiagonale(i:number,p:number):string{
        const matrice=[
@@ -328,7 +359,7 @@ Deno.test("1 mine en haut", ()=>{
 
 Deno.test("1 mine en haut et 1 en bas", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"2");
-});*/
+});
 
 Deno.test("recherche mine en verticale et horizontal", ()=>{
     assertEquals(rechecheMine(2,1),"4");
@@ -353,6 +384,11 @@ Deno.test("recherche mine en verticale et horizontal + diagonale haut vers droit
 Deno.test("recherche mine en verticale et horizontal + diagonale huat vers gauche", ()=>{
     assertEquals(rechecheMineDiagoHaut(1,3),"1");
 });*/
+
+Deno.test("recherche mine  tous les cotes", ()=>{
+    assertEquals(rechecheMine(2,1),"6");
+});
+
 
 
 
