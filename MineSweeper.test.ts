@@ -16,6 +16,17 @@ function rechecheMineDroite(i:number):number{
     return compteurMine;
 }
 
+function rechecheMineGauche(i:number):number{
+    const premirerLigne=[".",".","*","*","."];
+    let compteurMine=0;
+
+        if(premirerLigne[i+1]==="."){
+            compteurMine=compteurMine;
+        }
+    
+    return compteurMine;
+}
+
 Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),0);
 });
