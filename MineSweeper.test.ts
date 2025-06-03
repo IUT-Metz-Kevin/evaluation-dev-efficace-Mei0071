@@ -28,3 +28,6 @@ Deno.test("recherche mines à droite par rapport à la case la plus à droite de
     assertEquals(rechecheMineDroite(4),0);
 });
 
+Deno.test("0 mine à gauche", ()=>{
+    assertEquals(rechecheMineGauche(1),0);
+});
