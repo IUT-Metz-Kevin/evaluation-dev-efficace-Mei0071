@@ -216,6 +216,14 @@ function rechecheMineDiagoHaut(i:number,p:number):string{
         }
     }
 
+    if(p<0){
+        if(matrice[i-1][p-1]==="."){
+            compteurMine=compteurMine;
+        }else{
+            compteurMine++;
+        }
+    }
+
     return compteurMine.toString();
 }
 
