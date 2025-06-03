@@ -181,6 +181,12 @@ function rechecheMineDiagoBas(i:number,p:number):string{
         compteurMine++;
     }
 
+    if(matrice[i+1][p-1]==="."){
+        compteurMine=compteurMine;
+    }else{
+        compteurMine++;
+    }
+
     return compteurMine.toString();
 }
 
