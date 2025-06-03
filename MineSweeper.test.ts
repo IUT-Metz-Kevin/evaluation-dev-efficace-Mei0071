@@ -180,6 +180,10 @@ Deno.test("1 mine en haut", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"1");
 });
 
+Deno.test("1 mine en haut et 1 en bas", ()=>{
+    assertEquals(rechecheMineHautBas(1,2),"2");
+});
+
 
 
 
