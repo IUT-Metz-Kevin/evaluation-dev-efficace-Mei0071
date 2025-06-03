@@ -1,11 +1,11 @@
 import { assertEquals } from "jsr:@std/assert";
 
 function rechecheMineDroite(i:number):number{
-    const premirerLigne=[".",".","*","*","."];
+    const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
-    if(i<premirerLigne.length-1){
-        if(premirerLigne[i+1]==="."){
+    if(i<premiereLigne.length-1){
+        if(premiereLigne[i+1]==="."){
             compteurMine=compteurMine;
         }else{
             compteurMine++;
@@ -17,11 +17,11 @@ function rechecheMineDroite(i:number):number{
 }
 
 function rechecheMineGauche(i:number):number{
-    const premirerLigne=[".",".","*","*","."];
+    const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
     if(i>0){
-        if(premirerLigne[i-1]==="."){
+        if(premiereLigne[i-1]==="."){
             compteurMine=compteurMine;
         }else{
             compteurMine++;
@@ -32,6 +32,29 @@ function rechecheMineGauche(i:number):number{
     return compteurMine;
 }
 
+function rechecheMineCote(i:number):number{
+    const premiereLigne=[".",".","*","*",".","*"];
+    let compteurMine=0;
+
+    if(i<premiereLigne.length-1){
+        if(premiereLigne[i+1]==="."){
+            compteurMine=compteurMine;
+        }else{
+            compteurMine++;
+        }
+    }
+
+    if(i>0){
+        if(premiereLigne[i-1]==="."){
+            compteurMine=compteurMine;
+        }else{
+            compteurMine++;
+        }
+    
+    }
+
+    return compteurMine;
+}
 
 Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),0);
