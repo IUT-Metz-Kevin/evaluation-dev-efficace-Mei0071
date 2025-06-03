@@ -14,3 +14,7 @@ function rechecheMineCote(i:number):number{
 Deno.test("0 mines à droite", ()=>{
     assertEquals(rechecheMineCote(0),0);
 });
+
+Deno.test("1 mines à droite", ()=>{
+    assertEquals(rechecheMineCote(1),1);
+});
