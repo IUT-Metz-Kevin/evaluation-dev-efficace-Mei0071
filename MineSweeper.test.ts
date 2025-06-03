@@ -4,11 +4,14 @@ function rechecheMineCote(i:number):number{
     const premirerLigne=[".",".","*","*","."];
     let compteurMine=0;
 
-    if(premirerLigne[i+1]==="."){
-        compteurMine=compteurMine;
-    }else{
-        compteurMine++;
+    if(i<premirerLigne.length-1){
+        if(premirerLigne[i+1]==="."){
+            compteurMine=compteurMine;
+        }else{
+            compteurMine++;
+        }
     }
+    
 
     return compteurMine;
 }
