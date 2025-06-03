@@ -20,12 +20,15 @@ function rechecheMineGauche(i:number):number{
     const premirerLigne=[".",".","*","*","."];
     let compteurMine=0;
 
+    if(i>0){
         if(premirerLigne[i-1]==="."){
             compteurMine=compteurMine;
         }else{
             compteurMine++;
         }
     
+    }
+      
     return compteurMine;
 }
 
