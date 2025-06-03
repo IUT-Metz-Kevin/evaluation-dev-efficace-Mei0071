@@ -65,11 +65,13 @@ function rechecheMineHaut(i:number,p:number):string{
     ];
     let compteurMine=0;
 
-    if(matrice[i-1][p]==="."){
-        compteurMine=compteurMine;
-    }else{
-        compteurMine++
-    }
+    if(matrice[i][p]==="."){
+        if(matrice[i-1][p]==="."){
+            compteurMine=compteurMine;
+        }else{
+            compteurMine++
+        }
+    }else return "*";
       
     return compteurMine.toString();
 }
