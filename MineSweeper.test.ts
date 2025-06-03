@@ -166,6 +166,23 @@ function rechecheMine(i:number,p:number):string{
     }else return "*";  
 }
 
+function rechecheMineDiagoBas(i:number,p:number):string{
+     const matrice=[
+        [".",".","*","*","."],
+        [".","*",".",".","."],
+        ["*",".","*",".","."],        
+        [".","*","*",".","."]        
+    ];
+    let compteurMine=0;
+
+    if(matrice[i+1][p+1]==="."){
+        compteurMine=compteurMine;
+    }else{
+        compteurMine++;
+    }
+
+    return compteurMine.toString();
+}
 
 /*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),"0");
@@ -235,7 +252,7 @@ Deno.test("recherche mine en verticale et horizontal", ()=>{
     assertEquals(rechecheMine(1,2),"3");
 });
 
-Deno.test("recherche mine en verticale et horizontal + diagonlae", ()=>{
+Deno.test("recherche mine en verticale et horizontal + diagonale Bas", ()=>{
     assertEquals(rechecheMineDiagoBas(0,0),"1");
 });
 
