@@ -32,6 +32,7 @@ function rechecheMineGauche(i:number):number{
     return compteurMine;
 }
 
+
 Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),0);
 });
@@ -54,5 +55,9 @@ Deno.test("1 mine à gauche", ()=>{
 
 Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
     assertEquals(rechecheMineGauche(0),0);
+});
+
+Deno.test("0 mine à droite et à gauche", ()=>{
+    assertEquals(rechecheMineCote(0),0);
 });
 
