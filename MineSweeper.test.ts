@@ -75,9 +75,24 @@ function rechecheMineHaut(i:number,p:number):string{
             }
         }
         return compteurMine.toString();
-    }else return "*";
+    }else return "*";  
+}
+
+function rechecheMineBas(i:number,p:number):string{
+    const matrice=[
+        [".",".","*","*","."],
+        [".","*",".",".","."]
+    ];
+    let compteurMine=0;
     
-      
+    if(matrice[i][p]==="."){
+            if(matrice[i+1][p]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++
+            }
+        return compteurMine.toString();
+    }else return "*";  
 }
 
 /*Deno.test("0 mine à droite", ()=>{
