@@ -199,6 +199,27 @@ function rechecheMineDiagoBas(i:number,p:number):string{
     }else return "*";  
 }
 
+function rechecheMineDiagoHaut(i:number,p:number):string{
+       const matrice=[
+        [".",".","*","*","."],
+        [".","*",".",".","."],
+        ["*",".","*",".","."],        
+        ["*","*","*",".","."]        
+    ];
+    let compteurMine=0;
+
+    if(p<matrice[p].length-1){
+        if(matrice[i-1][p+1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+        }
+    }
+
+    return compteurMine.toString();
+}
+
+
 /*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),"0");
 });
