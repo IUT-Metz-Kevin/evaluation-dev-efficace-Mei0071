@@ -58,6 +58,22 @@ function rechecheMineCote(i:number):string{
     return compteurMine.toString();
 }
 
+function rechecheMineHaut(i:number,p:number):string{
+    const matrice=[
+        [".",".","*","*","."],
+        [".","*",".",".","."]
+    ];
+    let compteurMine=0;
+
+    if(matrice[i-1][p]==="."){
+        compteurMine=compteurMine;
+    }else{
+        compteurMine++
+    }
+      
+    return compteurMine.toString();
+}
+
 /*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),"0");
 });
@@ -95,7 +111,7 @@ Deno.test("1 mine de chaque cote", ()=>{
 });
 
 Deno.test("0 mine au dessus", ()=>{
-    assertEquals(rechecheMineHaut(1),"0");
+    assertEquals(rechecheMineHaut(1,0),"0");
 });
 
 
