@@ -84,3 +84,11 @@ Deno.test("0 mine à droite et à gauche", ()=>{
     assertEquals(rechecheMineCote(0),0);
 });
 
+Deno.test("1 mine d'un cote", ()=>{
+    assertEquals(rechecheMineCote(1),1);
+});
+
+Deno.test("1 mine de chaque cote", ()=>{
+    assertEquals(rechecheMineCote(4),2);
+});
+
