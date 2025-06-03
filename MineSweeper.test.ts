@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert";
 
-/*function rechecheMineDroite(i:number):number{
+function rechecheMineDroite(i:number):string{
     const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
@@ -13,10 +13,10 @@ import { assertEquals } from "jsr:@std/assert";
     }
     
 
-    return compteurMine;
+    return compteurMine.toString();
 }
 
-function rechecheMineGauche(i:number):number{
+function rechecheMineGauche(i:number):string{
     const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
@@ -29,8 +29,8 @@ function rechecheMineGauche(i:number):number{
     
     }
       
-    return compteurMine;
-}*/
+    return compteurMine.toString();
+}
 
 function rechecheMineCote(i:number):string{
     const premiereLigne=[".",".","*","*",".","*"];
@@ -54,33 +54,33 @@ function rechecheMineCote(i:number):string{
         
         }
     }else return "*";
-    
+
     return compteurMine.toString();
 }
 
-/*Deno.test("0 mine à droite", ()=>{
-    assertEquals(rechecheMineDroite(0),0);
+Deno.test("0 mine à droite", ()=>{
+    assertEquals(rechecheMineDroite(0),"0");
 });
 
 Deno.test("1 mine à droite", ()=>{
-    assertEquals(rechecheMineDroite(1),1);
+    assertEquals(rechecheMineDroite(1),"1");
 });
 
 Deno.test("recherche mines à droite par rapport à la case la plus à droite de la ligne", ()=>{
-    assertEquals(rechecheMineDroite(4),0);
+    assertEquals(rechecheMineDroite(4),"0");
 });
 
 Deno.test("0 mine à gauche", ()=>{
-    assertEquals(rechecheMineGauche(1),0);
+    assertEquals(rechecheMineGauche(1),"0");
 });
 
 Deno.test("1 mine à gauche", ()=>{
-    assertEquals(rechecheMineGauche(4),1);
+    assertEquals(rechecheMineGauche(4),"1");
 });
 
 Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
-    assertEquals(rechecheMineGauche(0),0);
-});*/
+    assertEquals(rechecheMineGauche(0),"0");
+});
 
 Deno.test("0 mine à droite et à gauche", ()=>{
     assertEquals(rechecheMineCote(0),"0");
