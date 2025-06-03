@@ -22,6 +22,8 @@ function rechecheMineGauche(i:number):number{
 
         if(premirerLigne[i-1]==="."){
             compteurMine=compteurMine;
+        }else{
+            compteurMine++;
         }
     
     return compteurMine;
