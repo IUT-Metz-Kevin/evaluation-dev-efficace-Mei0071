@@ -171,23 +171,32 @@ function rechecheMineDiagoBas(i:number,p:number):string{
         [".",".","*","*","."],
         [".","*",".",".","."],
         ["*",".","*",".","."],        
-        [".","*","*",".","."]        
+        ["*","*","*",".","."]        
     ];
     let compteurMine=0;
 
-    if(matrice[i+1][p+1]==="."){
-        compteurMine=compteurMine;
-    }else{
-        compteurMine++;
-    }
+    if(matrice[i][p]==="."){
 
-    if(matrice[i+1][p-1]==="."){
-        compteurMine=compteurMine;
-    }else{
-        compteurMine++;
-    }
-
-    return compteurMine.toString();
+        if(p<matrice[p].length-1){
+            if(matrice[i+1][p+1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+            }
+        }
+    
+        /*
+        ne fonctionne pas a revoir
+        if(p<0){
+            if(matrice[i+1][p-1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+            }
+        }*/
+        return compteurMine.toString();
+        
+    }else return "*";  
 }
 
 /*Deno.test("0 mine à droite", ()=>{
@@ -264,6 +273,10 @@ Deno.test("recherche mine en verticale et horizontal + diagonale Bas vers droite
 
 Deno.test("recherche mine en verticale et horizontal + diagonale Bas vers gauche", ()=>{
     assertEquals(rechecheMineDiagoBas(2,3),"1");
+});
+
+Deno.test("recherche mine en verticale et horizontal + diagonale Bas vers droite", ()=>{
+    assertEquals(rechecheMineDiagoHaut(1,2),"1");
 });
 
 
