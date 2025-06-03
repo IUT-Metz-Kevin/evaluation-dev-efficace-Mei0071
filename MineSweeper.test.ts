@@ -116,6 +116,11 @@ Deno.test("0 mine au dessus", ()=>{
     assertEquals(rechecheMineHaut(1,0),"0");
 });
 
+Deno.test("recherche mine au dessu de la ligne la plus haute", ()=>{
+    assertEquals(rechecheMineHaut(0,0),"0");
+});
+
+
 
 
 
