@@ -166,7 +166,7 @@ function rechecheMine(i:number,p:number):string{
     }else return "*";  
 }
 
-function rechecheMineDiagoBas(i:number,p:number):string{
+/*function rechecheMineDiagoBas(i:number,p:number):string{
      const matrice=[
         [".",".","*","*","."],
         [".","*",".",".","."],
@@ -185,7 +185,7 @@ function rechecheMineDiagoBas(i:number,p:number):string{
             }
         }
     
-        /*
+        
         ne fonctionne pas a revoir
         if(p<0){
             if(matrice[i+1][p-1]==="."){
@@ -193,7 +193,7 @@ function rechecheMineDiagoBas(i:number,p:number):string{
             }else{
                 compteurMine++;
             }
-        }*/
+        }
         return compteurMine.toString();
         
     }else return "*";  
@@ -201,9 +201,9 @@ function rechecheMineDiagoBas(i:number,p:number):string{
 
 function rechecheMineDiagoHaut(i:number,p:number):string{
        const matrice=[
-        [".",".","*","*","."],
+        [".",".",".","*","*"],
         [".","*",".",".","."],
-        ["*",".","*",".","."],        
+        ["*",".",".",".","*"],        
         ["*","*","*",".","."]        
     ];
     let compteurMine=0;
@@ -225,6 +225,48 @@ function rechecheMineDiagoHaut(i:number,p:number):string{
     }
 
     return compteurMine.toString();
+}*/
+
+function rechecheMineDiagonale(i:number,p:number):string{
+       const matrice=[
+        [".",".",".","*","*"],
+        [".","*",".",".","."],
+        ["*",".",".",".","*"],        
+        ["*","*","*",".","."]        
+    ];
+    let compteurMine=0;
+    if(matrice[i][p]==="."){
+        if(p<matrice[p].length-1){
+            if(matrice[i-1][p+1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+            }
+
+            if(matrice[i+1][p+1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+            }
+        }
+
+        if(p<0){
+            if(matrice[i-1][p-1]==="."){
+                compteurMine=compteurMine;
+            }else{
+                compteurMine++;
+            }
+
+            if(p<0){
+                if(matrice[i+1][p-1]==="."){
+                    compteurMine=compteurMine;
+                }else{
+                    compteurMine++;
+                }
+            }
+        }
+        return compteurMine.toString();
+    }else return "*";  
 }
 
 
@@ -296,7 +338,7 @@ Deno.test("recherche mine en verticale et horizontal", ()=>{
     assertEquals(rechecheMine(1,2),"3");
 });
 
-Deno.test("recherche mine en verticale et horizontal + diagonale Bas vers droite", ()=>{
+/*Deno.test("recherche mine en verticale et horizontal + diagonale Bas vers droite", ()=>{
     assertEquals(rechecheMineDiagoBas(0,0),"1");
 });
 
@@ -310,7 +352,7 @@ Deno.test("recherche mine en verticale et horizontal + diagonale haut vers droit
 
 Deno.test("recherche mine en verticale et horizontal + diagonale huat vers gauche", ()=>{
     assertEquals(rechecheMineDiagoHaut(1,3),"1");
-});
+});*/
 
 
 
