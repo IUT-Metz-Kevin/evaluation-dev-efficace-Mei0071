@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert";
 
-function rechecheMineDroite(i:number):string{
+/*function rechecheMineDroite(i:number):string{
     const premiereLigne=[".",".","*","*","."];
     let compteurMine=0;
 
@@ -30,7 +30,7 @@ function rechecheMineGauche(i:number):string{
     }
       
     return compteurMine.toString();
-}
+}*/
 
 function rechecheMineCote(i:number):string{
     const premiereLigne=[".",".","*","*",".","*"];
@@ -58,7 +58,7 @@ function rechecheMineCote(i:number):string{
     return compteurMine.toString();
 }
 
-Deno.test("0 mine à droite", ()=>{
+/*Deno.test("0 mine à droite", ()=>{
     assertEquals(rechecheMineDroite(0),"0");
 });
 
@@ -80,7 +80,7 @@ Deno.test("1 mine à gauche", ()=>{
 
 Deno.test("recherche mines à gauche par rapport à la case la plus à gauche de la ligne", ()=>{
     assertEquals(rechecheMineGauche(0),"0");
-});
+});*/
 
 Deno.test("0 mine à droite et à gauche", ()=>{
     assertEquals(rechecheMineCote(0),"0");
@@ -92,6 +92,10 @@ Deno.test("1 mine d'un cote", ()=>{
 
 Deno.test("1 mine de chaque cote", ()=>{
     assertEquals(rechecheMineCote(4),"2");
+});
+
+Deno.test("0 mine au dessus", ()=>{
+    assertEquals(rechecheMineHaut(1),"0");
 });
 
 
