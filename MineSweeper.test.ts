@@ -100,7 +100,8 @@ function rechecheMineBas(i:number,p:number):string{
 function rechecheMineHautBas(i:number,p:number):string{
     const matrice=[
         [".",".","*","*","."],
-        [".","*",".",".","."]
+        [".","*",".",".","."],
+        [".","*","*",".","."]        
     ];
     let compteurMine=0;
 
@@ -176,9 +177,9 @@ Deno.test("recherche mine en dessous de la ligne la plus basse", ()=>{
     assertEquals(rechecheMineBas(1,0),"0");
 });*/
 
-Deno.test("1 mine en haut", ()=>{
+/*Deno.test("1 mine en haut", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"1");
-});
+});*/
 
 Deno.test("1 mine en haut et 1 en bas", ()=>{
     assertEquals(rechecheMineHautBas(1,2),"2");
