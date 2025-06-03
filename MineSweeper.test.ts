@@ -20,7 +20,7 @@ function rechecheMineGauche(i:number):number{
     const premirerLigne=[".",".","*","*","."];
     let compteurMine=0;
 
-        if(premirerLigne[i+1]==="."){
+        if(premirerLigne[i-1]==="."){
             compteurMine=compteurMine;
         }
     
@@ -42,3 +42,8 @@ Deno.test("recherche mines à droite par rapport à la case la plus à droite de
 Deno.test("0 mine à gauche", ()=>{
     assertEquals(rechecheMineGauche(1),0);
 });
+
+Deno.test("1 mine à gauche", ()=>{
+    assertEquals(rechecheMineGauche(4),1);
+});
+
