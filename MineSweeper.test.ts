@@ -235,6 +235,11 @@ Deno.test("recherche mine en verticale et horizontal", ()=>{
     assertEquals(rechecheMine(1,2),"3");
 });
 
+Deno.test("recherche mine en verticale et horizontal + diagonlae", ()=>{
+    assertEquals(rechecheMine(2,1),"5");
+});
+
+
 
 
 
